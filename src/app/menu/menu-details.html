@@ -1,0 +1,70 @@
+
+
+<div *ngIf="menu" class="menu-details app-content container">
+
+  <!--
+    <div class="header row">
+      <div class="col user col-xs-6 col-md-6">
+        <img src="http://placehold.it/120x120">
+        <div>
+            <span class="name">
+              <a [routerLink]="['/user/'+menu.user.id]">
+                <span>{{menu.name}}</span>
+              </a>
+            </span>
+          <span class="city">&nbsp;</span>
+          <span *ngIf="menu.menuCategories == 1" class="followers">{{menu.menuCategories.length}} Category</span>
+          <span *ngIf="menu.menuCategories != 1" class="followers">{{menu.menuCategories.length}} Categories</span>
+          <span *ngIf="menu.menuItems == 1" class="followers">{{menu.menuItems.length}} Item</span>
+          <span *ngIf="menu.menuItems != 1" class="followers">{{menu.menuItems.length}} Items</span>
+        </div>
+      </div>
+      <div class="col col-xs-6 col-md-6">
+        <div class="row">
+          <div class="col-xs-8 col-md-8" style="float:right;">
+            <div class="posts">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  -->
+    <div class="body row">
+      <div class="col col-xs-12">
+        <h4>{{menu.name}}</h4>
+        <span *ngIf="menu.description" class="description">{{menu.description}}</span>
+        <span *ngIf="!menu.description" class="description">&nbsp;</span>
+
+        <br/>
+
+
+
+        <table>
+          <thead>
+            <th>PLU</th>
+            <th>Category Path</th>
+            <th>Name</th>
+            <th class="text-align-center">Price</th>
+            <th class="text-align-center">Size</th>
+            <th class="text-align-center">Barcode</th>
+            <th class="text-align-center">Hidden</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of menu.menuItems">
+              <td>{{item.plu}}</td>
+              <td>{{item.category_path}}</td>
+              <td>{{item.name}}</td>
+              <td class="text-align-center">{{item.price}}</td>
+              <td class="text-align-center">{{item.size}}</td>
+              <td class="text-align-center">{{item.barcode}}</td>
+              <td class="text-align-center">{{item.hidden}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+      </div>
+    </div>
+</div>
+

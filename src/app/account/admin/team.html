@@ -1,0 +1,82 @@
+<div class="team container-fluid app-content">
+  <h1>Team Management</h1>
+
+  <div class="summary container-fluid">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="gutter row">
+          <div class="col-md-4">
+            <div class="summary-card">
+              <i class="fa fa-users"></i>
+              <div class="number">3</div>
+              <div class="description">Team Members</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="summary-card">
+              <i class="fa fa-map-marker"></i>
+              <div class="number">8 / 11</div>
+              <div class="description">Facilities Assigned / Total</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="summary-card">
+              Sort by:
+              <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards container-fluid">
+    <div class="row">
+
+      <div *ngFor="let user of users" class="user-card col-xs-6 offset-md-3">
+        <div class="row">
+          <div class="col-xs-2">
+            <div class="profile-pic circle"></div>
+          </div>
+          <div class="col-xs-8">
+            <div class="name">{{user.name}}</div>
+            <div class="title">{{user.title}}</div>
+            <div class="email">{{user.email}}</div>
+          </div>
+          <div class="badge col-xs-2">
+            <i class="fa fa-map-marker"></i>
+            <div class="badge">{{user.locations}}</div>
+            <i class="toggler fa fa-caret-right"></i>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!--<div class="user-card col-xs-6 offset-md-3">-->
+        <!--<div class="row">-->
+          <!--<div class="col-xs-2">-->
+            <!--<div class="profile-pic circle"></div>-->
+          <!--</div>-->
+          <!--<div class="col-xs-8">-->
+            <!--<div class="name">Tim Smith</div>-->
+            <!--<div class="title">Regional Manger</div>-->
+            <!--<div class="email">tim.smith@acmecorp.com</div>-->
+          <!--</div>-->
+          <!--<div class="badge col-xs-2">-->
+              <!--<i class="fa fa-map-marker"></i>-->
+              <!--<div class="badge">6</div>-->
+              <!--<i class="toggler fa fa-caret-right"></i>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+  </div>
+
+</div>
+
+

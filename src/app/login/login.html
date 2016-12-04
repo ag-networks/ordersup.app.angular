@@ -1,0 +1,36 @@
+<div class="sign-in container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 offset-sm-3 col-md-4 offset-md-4">
+      <div class="logo">
+        <img src="assets/img/logo.png">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+      <form [formGroup]="login_fg" (ngSubmit)="login()">
+        <div class="form-group">
+          <input [(ngModel)]="model.email" formControlName="pw_fc" class="form-control" type="text" placeholder="Email"/>
+          <input [(ngModel)]="model.password" formControlName="em_fc" class="form-control" type="password" placeholder="Password" />
+        </div>
+        <div class="form-group">
+          <span *ngIf="loginError" class="login-error">Wrong password or email.  Try again.</span>
+        </div>
+        <button type="submit" class="btn btn-outline-primary btn-block">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+      <div class="sign-in__other-options">
+        <div class="col-xs-4 sign-in__no-padding">
+          <p><a href="#">Forgot Password?</a></p>
+        </div>
+        <div class="col-xs-8 sign-in__no-padding text-xs-right">
+          <p>Don't have an account? <a href="#">Sign Up</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

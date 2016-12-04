@@ -1,0 +1,112 @@
+<div *ngIf="location" class="app-concept-details container">
+  <div class="header row">
+    <div class="col-md-7">
+      <h4>{{location.concept.name}} : {{location.name}}</h4>
+      <span>{{location.address1}} {{location.city}}, {{location.state}} {{location.zipcode}}</span>
+    </div>
+    <div class="col-md-5 text-md-right">
+      <form [formGroup]="active_menu_fg" class="form-inline" style="margin-top:6px;">
+        <div class="form-group">
+          <label>Active Menu</label>
+          <select
+              formControlName="active_menu_fc"
+              class="font-header-sm form-control form-control-lg">
+            <option *ngFor="let obj of location.owner.menus" [value]="obj.id">{{obj.id}} : {{obj.name}}</option>
+          </select>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="content row app-content">
+    <div class="col-md-9">
+
+      <div class="content row">
+        <div class="col-md-12">
+          <menu-details #menuDetails [menu]="location.menu"></menu-details>
+
+          <!--
+
+          <div class="menus">
+            <h5 *ngIf="location.owner.menus.length == 1">1 Menu</h5>
+            <h5 *ngIf="location.owner.menus.length != 1">{{location.owner.menus.length}} Menus</h5>
+            <div *ngFor="let obj of location.owner.menus" class="menu-card container-fluid">
+              <div class="menu-container">
+                <div class="info">
+                  <span class="name">
+                    <a [routerLink]="['/concept/owner/'+owner.id+'/location/'+obj.location_id+'/menu/'+obj.id]">
+                      {{obj.name}}
+                    </a>
+                    <br/>
+                    <a (click)="activateMenu(obj.id)">activate</a>
+                  </span>
+                  <span class="description">
+                    <div *ngIf="obj.menuCategories.length == 1">1 Category</div>
+                    <div *ngIf="obj.menuCategories.length != 1">{{obj.menuCategories.length}} Categories</div>
+
+                    <div *ngIf="obj.menuItems.length == 1">&nbsp;&nbsp;|&nbsp;&nbsp;1 Item</div>
+                    <div *ngIf="obj.menuItems.length != 1">&nbsp;&nbsp;|&nbsp;&nbsp;{{obj.menuItems.length}} Items</div>
+                  </span>
+                  <span class="small">Created {{obj.created_at | date:'short' }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          -->
+
+        </div>
+      </div>
+    </div>
+    <div class="right-col col-md-3">
+      <!--
+      <div class="menu-form">
+        <form [formGroup]="upload_fg" (ngSubmit)="uploadMenu()">
+          <div class="form-group">
+            <legend>Import Menu</legend>
+            <input formControlName="filename_fc" class="font-header-sm form-control" type="text" placeholder="Enter menu name"/>
+            <label class="btn btn-default btn-file">
+              Choose file <input type="file" (change)="setFile($event)" style="display: none;">
+              <div *ngIf="filesToUpload" class="filename">{{filesToUpload[0].name}}</div>
+            </label>
+            <button [disabled]="!upload_fg.valid" class="btn btn-primary" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+
+      <hr/>
+      -->
+
+      <div class="row">
+        <div class="col-xs-12">
+          <concept-location-user-form [location_id]="location.id" (addedUser)="updateUsers($event)"></concept-location-user-form>
+
+          <div class="users">
+            <h5 *ngIf="location.users.length == 1">1 User</h5>
+            <h5 *ngIf="location.users.length != 1">{{location.users.length}} Users</h5>
+            <div *ngFor="let obj of location.users" class="concept-card container-fluid">
+              <div class="concept-container">
+                <div class="img">
+                  <img src="https://placehold.it/400">
+                </div>
+                <div class="info">
+                  <span *ngIf="obj.first_name" class="username">
+                    <a [routerLink]="['/concept/location/user/'+obj.id]">
+                      {{obj.first_name}} {{obj.last_name}}
+                    </a>
+                  </span>
+                  <span class="description">
+                    {{obj.email}}
+                  </span>
+                  <!--<span class="platform">Created {{obj.created_at | amCalendar }}</span>-->
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+
+<div *ngIf="concept" class="app-concept-details container">
+  <div class="header row">
+    <div class="col-md-9">
+      <h4>{{concept.name}}</h4>
+      <span>{{concept.description}}</span>
+    </div>
+    <div class="col-md-3 text-md-right">
+      <!--<button-->
+        <!--data-toggle="collapse"-->
+        <!--data-target="#collapseFileUpload"-->
+        <!--class="btn btn-primary">-->
+        <!--<i class="fa fa-plus"></i>&nbsp;Import Menu-->
+      <!--</button>-->
+    </div>
+  </div>
+  <div class="content row app-content">
+    <div class="col-md-9">
+      <div class="content row">
+        <div class="concepts">
+          <h5 *ngIf="concept.owners.length == 1">1 Owner</h5>
+          <h5 *ngIf="concept.owners.length != 1">{{concept.owners.length}} Owners</h5>
+          <div *ngFor="let obj of concept.owners" class="concept-card container-fluid">
+            <div class="concept-container">
+              <div class="img">
+                <img src="https://placehold.it/400">
+              </div>
+              <div class="info">
+                <span *ngIf="obj.organization_name" class="username">
+                  <a [routerLink]="['/concept/owner/'+obj.id]">
+                    {{obj.organization_name}}
+                  </a>
+                </span>
+                <span class="description">
+                  {{obj.first_name}} {{obj.last_name}}, {{obj.phone}} <a href="mailto:{{obj.email}}">{{obj.email}}</a>
+                </span>
+                <span class="platform">Created {{concept.created_at | date:'short' }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="right-col col-md-3">
+
+      <!--
+      <div class="menu-form">
+        <form [formGroup]="upload_fg" (ngSubmit)="uploadMenu()">
+          <div class="form-group">
+            <legend>Import Menu</legend>
+            <input formControlName="filename_fc" class="font-header-sm form-control" type="text" placeholder="Enter menu name"/>
+            <label class="btn btn-default btn-file">
+              Choose file <input type="file" (change)="setFile($event)" style="display: none;">
+              <div *ngIf="filesToUpload" class="filename">{{filesToUpload[0].name}}</div>
+            </label>
+            <button [disabled]="!upload_fg.valid" class="btn btn-primary" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+      -->
+
+      <concept-owner-form [concept_id]="concept.id" (addedOwner)="updateOwners($event)"></concept-owner-form>
+
+    </div>
+  </div>
+</div>

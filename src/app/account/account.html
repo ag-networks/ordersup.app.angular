@@ -1,0 +1,26 @@
+<div class="account container-fluid app-content">
+  <div class="header row">
+    <div class="col-xs-12">
+      <div class="image">
+        <div *ngIf="!user.image_url" class="profile-pic circle"></div>
+        <img *ngIf="user.image_url" class="profile-pic circle" src="{{user.image_url}}">
+      </div>
+      <div class="message">Welcome back, {{user?.first_name}}!</div>
+      <div class="links">Acme Corporation </div>
+      <div class="nav">
+        <div [routerLink]="['./admin/profile']" routerLinkActive="active" class="nav-link circle"><i class="fa fa-user"></i></div>
+        <div [routerLink]="['./admin/company']" routerLinkActive="active" class="nav-link circle"><i class="fa fa-industry"></i></div>
+        <div [routerLink]="['./admin/team']" routerLinkActive="active" class="nav-link circle"><i class="fa fa-users"></i></div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+

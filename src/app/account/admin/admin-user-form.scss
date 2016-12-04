@@ -1,0 +1,53 @@
+@import '../../styles/global.scss';
+
+.admin-user-form {
+  color: $gray;
+  padding-left: 100px;
+  padding-right: 100px;
+  h1,h2 {
+    //padding: 15px;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+
+  input {
+    border-radius: 0px;
+    border: 0px;
+    border-bottom: 1px solid $gray;
+    text-align:center;
+  }
+
+  button.reset-pass-btn {
+    background-color: #aaaaaa;
+    color: $light;
+    padding: 15px 0px;
+    width: 100%;
+    border: 0px;
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  button.save-btn {
+    background-color: $gray;
+    color: $light;
+    padding: 15px 0px;
+    width: 100%;
+    border: 0px;
+    display: block;
+  }
+  span.btn-help {
+    color: #aaaaaa;
+    display: block;
+    clear: both;
+    float: left;
+    padding-top: 5px;
+    font-size: 12px;
+  }
+
+}

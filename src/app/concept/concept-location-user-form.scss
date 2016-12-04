@@ -1,0 +1,24 @@
+@import '../styles/global.scss';
+
+
+div.concept-location-user-form {
+
+  background-color: $brand_light_grey;
+  margin-top: 10px;
+  border-radius: 15px;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+
+  button {
+    margin: 10px 0px 10px 0px;
+    color: $light;
+    border: none;
+    padding: 5px;
+    padding-top: 8px;
+    width: 100%;
+    border-radius: 0px;
+  }
+}

@@ -1,0 +1,36 @@
+$input-border: #ccc;
+
+.row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+textarea {
+  resize: none !important;
+}
+
+select {
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
+  -webkit-appearance: none !important;
+}
+
+.form-group {
+  label {
+    color: $form_input_fg !important;
+  }
+}
+.form-control {
+  background-color: $form_input_bg !important;
+  color: $form_input_fg !important;
+  border-radius: 0px !important;
+  border: $form_input_border !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
+}

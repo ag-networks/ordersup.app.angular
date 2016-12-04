@@ -1,0 +1,141 @@
+$after_anim_margin_top : 20px;
+
+
+input[type="text"].anim,
+textarea.anim {
+  //box-sizing: border-box !important;
+  width: 100% !important;
+  margin: 0 0 1em !important;
+  padding: 1em !important;
+  resize: none !important;
+  outline: none !important;
+}
+
+/* heights */
+input[type="text"].anim {
+  height: calc(3em + 2px) !important;
+}
+textarea.anim {
+  height: calc(6em + 2px) !important;
+}
+
+input[type="text"].anim:focus,
+textarea.anim:focus {
+  border-color: $brand_mid_grey !important;
+  margin-top: $after_anim_margin_top !important;
+  -webkit-transition-duration: .2s !important;
+  transition-duration: .2s !important;
+}
+
+//input[type="text"].anim:valid,
+//textarea.anim:valid {
+//  margin-top: $after_anim_margin_top !important;
+//  color: orange;
+//}
+
+input[type="text"].anim,
+textarea.anim {
+  margin-top: $after_anim_margin_top !important;
+}
+
+
+input[type="text"].anim:focus + label[placeholder]:before,
+textarea.anim:focus + label[placeholder]:before{
+  color: $form_input_fg !important;
+}
+
+input[type="text"].anim.has-value  + label[placeholder]:before{
+  color: blue !important;
+  -webkit-transition-duration: .2s !important;
+  transition-duration: .2s !important;
+
+
+  -webkit-transform: translate(0, -1.5em) scale(0.7, 0.7) !important;
+  transform: translate(0, -1.5em) scale(0.7, 0.7) !important;
+  margin-left:0px !important;
+}
+/* placeholder animation position */
+input[type="text"].anim:focus + label[placeholder]:before,
+//input[type="text"].anim.has-value + label[placeholder]:before,
+input[type="text"].anim:valid:not(.no-value) + label[placeholder]:before {
+  -webkit-transition-duration: .2s !important;
+  transition-duration: .2s !important;
+
+
+  -webkit-transform: translate(0, -1.5em) scale(0.7, 0.7) !important;
+  transform: translate(0, -1.5em) scale(0.7, 0.7) !important;
+  margin-left:0px !important;
+
+
+  //-webkit-transform: translate(-0.75em, -2.5em) scale(0.9, 0.9) !important;
+  //transform: translate(-0.75em, -2.5em) scale(0.9, 0.9) !important;
+}
+
+//input[type="text"].anim:invalid + label[placeholder][alt]:before,
+//textarea.anim:invalid + label[placeholder][alt]:before
+//{
+//  content: attr(alt) !important;
+//}
+
+
+input[type="text"].anim + label[placeholder][alt]:before,
+textarea.anim + label[placeholder][alt]:before
+{
+  content: attr(alt) !important;
+  text-indent: 5px !important;
+}
+
+
+
+input[type="text"].anim + label[placeholder],
+textarea.anim + label[placeholder] {
+  display: block !important;
+  pointer-events: none !important;
+  line-height: 1.25em !important;
+}
+
+input[type="text"].anim + label[placeholder],
+input[type="text"].anim.no-value + label[placeholder] {
+  //display: block !important;
+  //pointer-events: none !important;
+  //line-height: 1.25em !important;
+  margin-top: calc(-3em - 2px) !important;
+  margin-bottom: calc((3em - 1em) + 2px) !important;
+  margin-left: 5px;
+  color: orange !important;
+}
+textarea.anim + label[placeholder] {
+  //display: block !important;
+  //pointer-events: none !important;
+  //line-height: 1.25em !important;
+  margin-top: calc(-6.5em - 2px) !important;
+  margin-bottom: calc((6.5em - 1em) + 2px) !important;
+}
+
+
+input[type="text"].anim + label[placeholder]:before,
+textarea.anim + label[placeholder]:before {
+  content: attr(placeholder) !important;
+  display: inline-block !important;
+  margin: 0 calc(1em + 2px) !important;
+  margin-left: 0px !important;
+  padding: 0 2px !important;
+  color: $form_input_fg !important;
+  color: blue;
+  white-space: nowrap !important;
+  -webkit-transition: 0.3s ease-in-out !important;
+  transition: 0.3s ease-in-out !important;
+  padding-left: 0px !important;
+  /* here */
+  background-image: -webkit-linear-gradient(top, #ffffff, #ffffff) !important;
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff) !important;
+  background-size: 100% 5px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+
+
+
+
+

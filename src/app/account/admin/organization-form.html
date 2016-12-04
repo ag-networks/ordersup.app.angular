@@ -1,0 +1,289 @@
+<div class="organization-form container-fluid app-content">
+  <form [formGroup]="form" (ngSubmit)="onSubmitModelBased()">
+
+    <h1>Company Information</h1>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="row">
+          <div class="col-xs-6">
+            <section class="sample-app-content">
+                <div class="form-groupFOO">
+
+                  <input
+                    formControlName="name"
+                    type="text"
+                    class="form-control anim"
+                    required
+                  >
+                  <label alt="Company Name&#32;&#42;" placeholder="Company Name&#32;&#42;"></label>
+                  <input
+                    formControlName="industry"
+                    type="text"
+                    class="form-control anim"
+                    required
+                  >
+                  <label alt="Industry&#32;&#42;" placeholder="Industry&#32;&#42;"></label>
+
+                  <input
+                    formControlName="sub_industry"
+                    type="text"
+                    class="form-control anim"
+                    [ngClass]="{'has-value':sub_industry.hasError('hasValue'),'no-value':!sub_industry.hasError('hasValue')}"
+                  >
+                  <label alt="Sub-Industry" placeholder="Sub-Industry"></label>
+                </div>
+            </section>
+          </div>
+          <div class="col-xs-6">
+            <section class="sample-app-content">
+              <div class="form-group">
+                <input
+                  id="year_founded"
+                  formControlName="year_founded"
+                  type="text"
+                  class="form-control anim"
+                  required
+                >
+                <label alt="Year Founded&#32;&#42;" placeholder="Year Founded&#32;&#42;"></label>
+
+                <input
+                  id="company_size"
+                  formControlName="company_size"
+                  type="text"
+                  class="form-control anim"
+                  required
+                >
+                <label alt="Company Size&#32;&#42;" placeholder="Company Size&#32;&#42;"></label>
+
+                <input
+                  id="number_of_locations"
+                  formControlName="number_of_locations"
+                  type="text"
+                  class="form-control anim"
+                  required
+                >
+                <label alt="Number of Locations&#32;&#42;" placeholder="Number of Locations&#32;&#42;"></label>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1>Company Contact Details</h1>
+    <h2>Official Company Address</h2>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="row">
+          <div class="col-xs-6">
+            <section class="sample-app-content">
+              <div class="form-group">
+                <input
+                  formControlName="address_line_1"
+                  type="text"
+                  class="form-control anim"
+                  required
+                >
+                <label alt="Address Line 1&#32;&#42;" placeholder="Address Line 1&#32;&#42;"></label>
+
+                <input
+                  formControlName="address_line_2"
+                  type="text"
+                  class="form-control anim"
+                  [ngClass]="{'has-value':sub_industry.hasError('hasValue'),'no-value':!sub_industry.hasError('hasValue')}"
+                >
+                <label alt="Address Line 2" placeholder="Address Line 2"></label>
+
+                <input
+                  formControlName="city"
+                  type="text"
+                  class="form-control anim"
+                  required
+                >
+                <label alt="City&#32;&#42;" placeholder="City&#32;&#42;"></label>
+
+              </div>
+            </section>
+          </div>
+          <div class="col-xs-6">
+            <section class="sample-app-content">
+              <div class="form-group">
+                <input
+                  formControlName="state"
+                  type="text"
+                  class="form-control anim"
+                  required
+                >
+                <label alt="State&#32;&#42;" placeholder="State&#32;&#42;"></label>
+
+                <input
+                  formControlName="zipcode"
+                  type="text"
+                  class="form-control anim"
+                  required
+                >
+                <label alt="Zipcode&#32;&#42;" placeholder="Zipcode&#32;&#42;"></label>
+
+
+                <input
+                  formControlName="country"
+                  type="text"
+                  class="form-control anim"
+                >
+                <label alt="Country" placeholder="Country"></label>
+
+              </div>
+            </section>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <h2>General Contact</h2>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="row">
+          <div class="col-xs-6">
+            <section class="sample-app-content">
+              <div class="form-group">
+                <input
+                  formControlName="email_address"
+                  type="text"
+                  class="form-control anim"
+                  required
+                >
+                <label alt="Primary Email Address&#32;&#42;" placeholder="Primary Email Address&#32;&#42;"></label>
+
+                <input
+                  formControlName="phone_number"
+                  type="text"
+                  class="form-control anim"
+                  [ngClass]="{'has-value':sub_industry.hasError('hasValue'),'no-value':!sub_industry.hasError('hasValue')}"
+                >
+                <label alt="Phone Number" placeholder="Phone Number"></label>
+
+              </div>
+            </section>
+          </div>
+          <div class="col-xs-6">
+            <section class="sample-app-content">
+              <div class="form-group">
+                <input
+                  formControlName="website"
+                  type="text"
+                  class="form-control anim"
+                  required
+                >
+                <label alt="Website&#32;&#42;" placeholder="Website&#32;&#42;"></label>
+
+
+                <input
+                  formControlName="fax_number"
+                  type="text"
+                  class="form-control anim"
+                  [ngClass]="{'has-value':sub_industry.hasError('hasValue'),'no-value':!sub_industry.hasError('hasValue')}"
+                >
+                <label alt="Fax Number" placeholder="Fax Number"></label>
+
+
+              </div>
+            </section>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <h2>Social Links</h2>
+    <div class="row">
+      <div class="col-xs-12">
+        <section class="sample-app-content">
+          <div class="form-group">
+            <input
+              formControlName="facebook_link"
+              type="text"
+              class="form-control anim"
+              [ngClass]="{'has-value':sub_industry.hasError('hasValue'),'no-value':!sub_industry.hasError('hasValue')}"
+            >
+            <label alt="Facebook" placeholder="Facebook"></label>
+
+            <input
+              formControlName="linkedin_link"
+              type="text"
+              class="form-control anim"
+              [ngClass]="{'has-value':sub_industry.hasError('hasValue'),'no-value':!sub_industry.hasError('hasValue')}"
+            >
+            <label alt="LinkedIn" placeholder="LinkedIn"></label>
+
+            <input
+              formControlName="twitter_link"
+              type="text"
+              class="form-control anim"
+              [ngClass]="{'has-value':sub_industry.hasError('hasValue'),'no-value':!sub_industry.hasError('hasValue')}"
+            >
+            <label alt="Twitter" placeholder="Twitter"></label>
+
+            <input
+              formControlName="instagram_link"
+              type="text"
+              class="form-control anim"
+              [ngClass]="{'has-value':sub_industry.hasError('hasValue'),'no-value':!sub_industry.hasError('hasValue')}"
+            >
+            <label alt="Instagram" placeholder="Instagram"></label>
+
+            <input
+              formControlName="snapchat_link"
+              type="text"
+              class="form-control anim"
+              [ngClass]="{'has-value':sub_industry.hasError('hasValue'),'no-value':!sub_industry.hasError('hasValue')}"
+            >
+            <label alt="Snapchat" placeholder="Snapchat"></label>
+
+            <input
+              formControlName="youtube_link"
+              type="text"
+              class="form-control anim"
+              [ngClass]="{'has-value':sub_industry.hasError('hasValue'),'no-value':!sub_industry.hasError('hasValue')}"
+            >
+            <label alt="Youtube" placeholder="Youtube"></label>
+
+            <input
+              formControlName="vimeo_link"
+              type="text"
+              class="form-control anim"
+              [ngClass]="{'has-value':sub_industry.hasError('hasValue'),'no-value':!sub_industry.hasError('hasValue')}"
+            >
+            <label alt="Vimeo" placeholder="Vimeo"></label>
+
+            <input
+              formControlName="pinterest_link"
+              type="text"
+              class="form-control anim"
+              [ngClass]="{'has-value':sub_industry.hasError('hasValue'),'no-value':!sub_industry.hasError('hasValue')}"
+            >
+            <label alt="Pinterest" placeholder="Pinterest"></label>
+
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="buttons-container">
+      <div class="buttons">
+        <button type="submit" [disabled]="!form.valid" class="save-btn">Save Changes</button>
+        <span class="btn-help">&#42; Required</span>
+      </div>
+    </div>
+
+    <!--
+    <p>
+      <button (click)="partialUpdate()">Partial Update</button>
+      <button (click)="fullUpdate()">Full Update</button>
+      <button (click)="reset()" >Cancel</button>
+    </p>
+    -->
+
+  </form>
+</div>

@@ -1,0 +1,79 @@
+<div class="app-signin">
+      <div class="container login-box">
+        <div class="row">
+          <form class="form-signin mg-btm">
+            <div [hidden]="!showLoading" class="social-box">
+              <div class="row mg-btm">
+                <div class="col-md-12">
+                  Authenticating..
+                </div>
+              </div>
+            </div>
+
+            <div [hidden]="showLoading" class="social-box">
+              <div class="row mg-btm">
+                <div class="col-md-12">
+
+                  <a (click)="authenticate('facebook')" href="#" class="btn btn-block btn-social btn-facebook">
+                    <span class="fa fa-facebook"></span>
+                    Sign in with Facebook
+                  </a>
+                </div>
+              </div>
+              <div class="row mg-btm">
+                <div class="col-md-12">
+                  <a (click)="authenticate('instagram')" href="#" class="btn btn-block btn-social btn-instagram">
+                    <span class="fa fa-instagram"></span>
+                    Sign in with Instagram
+                  </a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <!--<a (click)="toggleLogin()" href="#" class="btn btn-danger btn-block">-->
+                  <a (click)="closeLogin()" class="btn btn-danger btn-block">
+                       Cancel
+                  </a>
+                </div>
+              </div>
+              <!-- TODO: Add support for Twitter
+              <div class="row">
+                <div class="col-md-12">
+                  <a href="#" class="btn btn-info btn-block" >
+                    <i class="icon-twitter"></i>    Login with Twitter
+                  </a>
+                </div>
+              </div>
+              -->
+            </div>
+            <!-- TODO: Add support for email/pw authentication
+            <div class="main">
+
+              <input type="text" class="form-control" placeholder="Email" autofocus>
+              <input type="password" class="form-control" placeholder="Password">
+
+              <span class="clearfix"></span>
+            </div>
+            -->
+
+            <!-- TODO: Add fogotten password support
+            <div class="login-footer">
+              <div class="row">
+                <div class="col-xs-6 col-md-6">
+                  <div class="left-section">
+                    <a href="">Forgot your password?</a>
+                    <a href="">Sign up now</a>
+                  </div>
+                </div>
+                <div class="col-xs-6 col-md-6 pull-right">
+                  <button type="submit" class="btn btn-large btn-danger pull-right">Login</button>
+                </div>
+              </div>
+
+            </div>
+            -->
+
+          </form>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,102 @@
+<div class="concept-location-form container">
+
+  <form [formGroup]="loc_form" (ngSubmit)="saveLoc()">
+
+    <div class="body row">
+      <div class="col-md-12">
+        <div class="form-group">
+                <legend>Add Location</legend>
+                <input type="text" class="form-control anim"
+                       formControlName="name"
+                       name="name" required>
+                <label alt="Name or ID" placeholder="Name"></label>
+                <!--<div [hidden]="name.valid || name.pristine" class="alert alert-danger">-->
+                  <!--An name or ID is required-->
+                <!--</div>-->
+              </div>
+
+        <div class="form-group">
+                <input type="text" class="form-control anim"
+                       formControlName="store_code"
+                       name="store_code" required>
+                <label alt="Unique Store Code" placeholder="Unique Store Code"></label>
+          <!--<span *ngIf="store_code.hasError('usernameShouldBeUnique')">the store code is already in use</span>-->
+          <span [ngClass]="{'has-error':store_code.hasError('storeCodeShouldBeUnique')}">the store code is already in use</span>
+          <br/>
+          <span [ngClass]="{'has-error':!store_code.hasError('storeCodeShouldBeUnique')}">the store code is already in use</span>
+          <br/>
+          <span *ngIf="store_code.hasError('storeCodeShouldBeUnique')">ok</span>
+
+          <!--<span class="brand-req" [ngClass]="{'brand-req-ok':!store_code.hasError('usernameShouldBeUnique')}"><i class="fa fa-check"></i>&nbsp;PNG and JPG files only</span>-->
+
+          <!--<div [hidden]="store_code.valid || store_code.pristine" class="alert alert-danger">-->
+                  <!--An unique store code is required-->
+                <!--</div>-->
+              </div>
+        <!--
+
+        orig
+        //    "webpack": "^2.1.0-beta.22",
+//    "webpack-dev-middleware": "^1.6.1",
+//    "webpack-dev-server": "^2.1.0-beta.2",
+//    "webpack-md5-hash": "^0.0.5",
+//    "webpack-merge": "^0.14.1",
+//    "webpack-s3-plugin": "^0.9.0"
+
+        // new
+        //    "webpack": "2.1.0-beta.27",
+//    "webpack-dev-middleware": "^1.6.1",
+//    "webpack-dev-server": "2.1.0-beta.11",
+//    "webpack-md5-hash": "^0.0.5",
+//    "webpack-merge": "~1.0.1"
+
+        -->
+
+        <div class="form-group">
+                <input type="text" class="form-control anim"
+                       formControlName="address1"
+                       name="address1" required>
+                <label alt="Address" placeholder="Address"></label>
+                <!--<div [hidden]="address1.valid || address1.pristine" class="alert alert-danger">-->
+                  <!--An address is required-->
+                <!--</div>-->
+              </div>
+
+        <div class="form-group">
+                <input type="text" class="form-control anim"
+                       formControlName="city"
+                       name="city" required>
+                <label alt="City" placeholder="City"></label>
+                <!--<div [hidden]="city.valid || city.pristine" class="alert alert-danger">-->
+                  <!--A city is required-->
+                <!--</div>-->
+              </div>
+
+        <div class="form-group">
+                <input type="text" class="form-control anim"
+                       formControlName="state"
+                       name="state" required>
+                <label alt="State" placeholder="State"></label>
+                <!--<div [hidden]="state.valid || state.pristine" class="alert alert-danger">-->
+                  <!--A state is required-->
+                <!--</div>-->
+              </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control anim"
+                 formControlName="zipcode"
+                 name="zipcode"  required>
+          <label alt="Zipcode" placeholder="Zipcode"></label>
+
+          <div [hidden]="zipcode.valid || zipcode.pristine" class="alert alert-danger">
+            A zipcode is required
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" [disabled]="!loc_form.valid">SAVE</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+

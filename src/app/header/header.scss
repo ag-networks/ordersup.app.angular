@@ -1,0 +1,22 @@
+@import '../styles/global.scss';
+
+.header {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+.logo {
+  display: inline-block;
+  img {
+    width: 110px;
+  }
+}
+
+.nav-item {
+  cursor: pointer;
+}
+
+.username {
+  color: $light !important;
+}

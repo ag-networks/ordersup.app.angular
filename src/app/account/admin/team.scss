@@ -1,0 +1,101 @@
+@import '../../styles/global.scss';
+
+.team {
+  color: $gray;
+  h1,h2 {
+    text-align:center;
+    //padding: 15px;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  div.summary {
+    padding: 10px 0px;
+    background-color: #efefef;
+    > .row {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    div.summary-card {
+      i,.number {
+        float:left;
+      }
+      i,.description {
+        color: #aaaaaa;
+      }
+      i {
+        display: block;
+        font-size: 20px;
+        margin-top: 13px;
+      }
+      .number {
+        margin-left: 5px;
+        font-size: 30px;
+        font-weight: bold;
+        display: block;
+        float:left;
+      }
+      .description {
+        display: block;
+        clear: both;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+    }
+    .gutter.row {
+      margin-right: -15px !important;
+      margin-left: -15px !important;
+    }
+    .gutter > [class^="col-"], .gutter > [class^=" col-"] {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+
+  div.cards {
+    div.user-card {
+      margin-top: 25px;
+      border: 2px solid $gray;
+      border-radius: 55px;
+      padding: 15px;
+
+      .profile-pic {
+        width: 70px;
+        height: 70px;
+        background-color: $gray;
+      }
+      .badge {
+        text-align: center;
+        position: relative;
+          i {
+            position: relative;
+            display: block;
+            margin-bottom: -5px;
+            z-index:2;
+            font-size: 24px;
+            &.toggler {
+              position: absolute;
+              top: 21px;
+              right: 15px;
+            }
+          }
+          > div {
+            position: relative;
+            background-color: #aaaaaa;
+            border-radius: 10px;
+            color: $light;
+            display: inline-block;
+            padding: 3px 10px;
+            clear: both;
+            z-index:1;
+          }
+
+      }
+    }
+  }
+
+}

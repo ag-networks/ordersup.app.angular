@@ -1,0 +1,125 @@
+@import '../styles/global.scss';
+
+div.menu-details {
+
+  //background-color: black;
+
+  padding: 0px;
+
+
+  div.header {
+    border-top: 1px solid $gray;
+    //border-bottom: 1px solid $gray;
+    //padding: 15px 0px 15px 0px;
+    background-color: #FAF7F9;
+    div.col {
+      padding-left: 0px;
+      padding-right: 0px;
+      //.post-scroller {
+      //  .post-scroller-wrapper {
+      //    background-color: red;
+      //    height: 10px;
+      //    overflow: hidden;
+      //  }
+      //}
+      .posts {
+        //height: 50px;
+      }
+    }
+    div.col.user {
+      img {
+        display: block;
+        float:left;
+        width: 120px;
+      }
+      div {
+        float: left;
+        margin-left: 10px;
+        padding-top: 5px;
+        span {
+          display:block;
+          clear:both;
+          font-size: 80%;
+          color: $gray;
+          &.name {
+            font-family: Neutraface2Text-Book;
+            font-size: 120%;
+            color: $pink;
+          }
+          &.city {
+            //font-family: Neutraface2Text-BookItalic;
+            font-family: ACaslonPro-Italic;
+            //font-size: 21p;
+            //color: $gray;
+          }
+          &.followers {
+            font-family: Neutraface2Text-Book;
+            //font-size: 21pt;
+            //color: $gray;
+          }
+          a {
+            color: $pink;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+
+  div.body {
+    .col {
+      padding: 10px;
+
+      table {
+        width: 100%;
+        td {
+          border: 1px solid #efefef;
+        }
+      }
+      &.info {
+        h1 {
+          color: $gray;
+          font-size: 25px;
+        }
+        span.description {
+          color: $gray;
+          font-family: ACaslonPro-Italic;
+        }
+
+      }
+    }
+
+  }
+
+  div.info {
+    div.post-item {
+      height: 200px;
+      .col {
+        padding-left: 0px;
+        img {
+          display: block;
+          max-height:200px;
+          box-sizing: border-box;
+        }
+      }
+      border: 1px solid $gray;
+      span {
+        display: block;
+        clear: both;
+        color: $gray;
+        &.title {
+          font-family: Neutraface2Text-Book;
+          font-size: 120%;
+          color: $pink;
+        }
+        &.description {
+          //font-family: Neutraface2Text-BookItalic;
+          font-family: ACaslonPro-Italic;
+          //font-size: 21p;
+          //color: $gray;
+        }
+      }
+    }
+  }
+
+}

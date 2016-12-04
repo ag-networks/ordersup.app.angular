@@ -1,0 +1,135 @@
+$gray_transparent: rgba(189,190,192,0.2);
+$light: #ffffff;
+$gray: rgb(113,112,115);
+$pink: red;
+
+$form_input_bg: $light;
+$form_border: 3px solid #e1dfe0;
+$form_input_fg: #747476;
+$form_input_border: 1px solid $form_input_bg;
+
+/* brand colors */
+
+$brand_color_1: #1672a5;
+$brand_white: #ffffff;
+$brand_superlight_grey: #F9F9F9;
+$brand_light_grey: #F2F2F2;
+$brand_mid_grey: #9B9B9B;
+$brand_charcoal: #4A4A4A;
+$brand_black: #333333;
+$brand_red: #F45D43;
+$brand_orange: #F45D43;
+$brand_nav_hover: #F45D43;
+
+/* brand colors end */
+
+
+
+
+/* stuff below is some research */
+
+
+
+$alpha-ui-color: #1442cc;
+
+$alpha-grey-color : hsl(hue($alpha-ui-color),5,20);
+$beta-grey-color : hsl(hue($alpha-ui-color),5,30);
+$gamma-grey-color : hsl(hue($alpha-ui-color),5,45);
+
+
+// look at this
+// https://material.google.com/style/color.html#color-color-palette
+
+// The below taken from
+// https://www.designernews.co/stories/41926-organizing-css-color-palettes
+// https://gist.githubusercontent.com/Cleecanth/ef422b527ddcbaa1a62e/raw/c1da273cb042f01c5a3767611ca1f831c7778266/_colors.scss
+
+$colors: (
+  primary: (
+    base: #063b6d
+  ),
+  accent: (
+    base: #d40026
+  ),
+  action: (
+    base: #4c7659
+  ),
+  selection: (
+    base: #b22727
+  )
+);
+
+//Combines two color maps (or really any nested map)
+@function combine_colors($map1, $map2){
+  @each $pal, $color in $map2{
+    $value: ($pal: $color);
+    $map1: map-merge($map1, $value);
+  }
+  @return $map1;
+}
+
+//Adds lighter, darker variations to color map
+// 1. Gather variation names.
+// 2. Define the lighten/darken percentages.
+// 3. Get half the length of the varations for use later.
+// 4. Loop through the pallets and colors of the map input.
+// 5. Store the base color value that we'll add to throughout the next loop.
+// 6. Loop through the variation names.
+// 7. Grab the lighten/darken amount based on the loop iteration.
+// 8. If the loop is over half done, switch from lighten to darken.
+// 9. Create the variation and color definition in map format ("name": color).
+//10. Merge the current base color map with the new variant map.
+//11. Format the previous loops results into a nested map.
+//12. Merge the input map with itself and the new nested map.
+//13. Return the map with the new values.
+
+@function generate_color_variations(
+  $map,
+    $tint:false,
+    $variations: (light, lighter, lightest, dark, darker, darkest), //[1]
+    $increments: (10%, 20%, 30%, 10%, 20%, 40%) 				    //[2]
+){
+  $switch-variation: length($variations) / 2; 				  //[3]
+  $new-map: $map !global;
+
+  @each $pal, $color in $map{ 				//[4]
+    $values-list: $color !global;			//[5]
+
+    @each $variant in $variations {         //[6]
+      $i: index($variations, $variant);
+      $amount: nth($increments, $i);		//[7]
+      @if $tint == false{
+        @if $i > $switch-variation { 									//[8]
+          $new-color: darken(map-get($color, base), $amount) !global; //[8]
+        }@else{
+          $new-color: lighten(map-get($color, base), $amount) !global; //[8]
+        }
+      }@else{
+        @if $i > $switch-variation { 									//[8]
+          $new-color: shade(map-get($color, base), $amount) !global; //[8]
+        }@else{
+          $new-color: tint(map-get($color, base), $amount) !global; //[8]
+        }
+      }
+      $value: ($variant: $new-color); 				  				//[9]
+      // This is required because sass maps are formatted as
+      // (first-level: ((second-level: value)) )
+      $values-list: map-merge($value, $values-list) !global;			//[10]
+
+    }
+
+    $inner-map: ($pal:($values-list));						//[11]
+    $new-map: combine_colors($new-map, $inner-map) !global;	//[12]
+
+  }
+  @return $new-map; 			//[13]
+}
+
+//Generate the variations.
+$colors: generate_color_variations($colors);
+
+//Get colors
+@function color($color, $tone: 'base') {
+  @return map-get(map-get($colors, $color), $tone);
+};
+

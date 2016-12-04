@@ -1,0 +1,64 @@
+<div class="concept-location-form container">
+  <form [formGroup]="owner_form" (ngSubmit)="saveOwner()">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <legend>Add Owner</legend>
+          <input type="text" class="form-control anim"
+                 formControlName="organization_name"
+                 name="organization_name" required>
+          <label alt="Organization Name" placeholder="Organization Name"></label>
+          <!--<div [hidden]="organization_name.valid || organization_name.pristine" class="alert alert-danger">-->
+            <!--An organization name is required-->
+          <!--</div>-->
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control anim"
+                 formControlName="first_name"
+                 name="first_name" required>
+          <label alt="First Name" placeholder="First Name"></label>
+          <!--<div [hidden]="first_name.valid || first_name.pristine" class="alert alert-danger">-->
+            <!--An first name is required-->
+          <!--</div>-->
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control anim"
+                 formControlName="last_name"
+                 name="last_name" required>
+          <label alt="Last Name" placeholder="Last Name"></label>
+          <!--<div [hidden]="last_name.valid || last_name.pristine" class="alert alert-danger">-->
+            <!--An last name is required-->
+          <!--</div>-->
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control anim"
+                 formControlName="phone"
+                 name="phone" required>
+          <label alt="Phone" placeholder="Phone"></label>
+          <!--<div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">-->
+            <!--An phone number is required-->
+          <!--</div>-->
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control anim"
+                 formControlName="email"
+                 name="email" required>
+          <label alt="Email" placeholder="Email"></label>
+          <!--<div [hidden]="email.valid || email.pristine" class="alert alert-danger">-->
+            <!--An email address is required-->
+          <!--</div>-->
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" [disabled]="!owner_form.valid">SAVE</button>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>

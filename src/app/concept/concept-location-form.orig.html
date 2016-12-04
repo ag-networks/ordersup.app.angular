@@ -1,0 +1,76 @@
+<div class="concept-location-form container">
+
+  <form *ngIf="active" (ngSubmit)="saveLoc()" #conceptLocationForm="ngForm">
+    <div class="body row">
+      <div class="col-md-12">
+        <div class="form-group">
+                <legend>Add Location</legend>
+                <input type="text" class="form-control anim"
+                       [(ngModel)]="model.name"
+                       name="name" #name="ngModel" required>
+                <label alt="Name or ID" placeholder="Name"></label>
+                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                  An name or ID is required
+                </div>
+              </div>
+
+        <div class="form-group">
+                <input type="text" class="form-control anim"
+                       [(ngModel)]="model.store_code"
+                       name="store_code" #store_code="ngModel" required>
+                <label alt="Unique Store Code" placeholder="Unique Store Code"></label>
+                <div [hidden]="store_code.valid || store_code.pristine" class="alert alert-danger">
+                  An unique store code is required
+                </div>
+              </div>
+
+        <div class="form-group">
+                <input type="text" class="form-control anim"
+                       [(ngModel)]="model.address1"
+                       name="address1" #address1="ngModel" required>
+                <label alt="Address" placeholder="Address"></label>
+                <div [hidden]="address1.valid || address1.pristine" class="alert alert-danger">
+                  An address is required
+                </div>
+              </div>
+
+        <div class="form-group">
+                <input type="text" class="form-control anim"
+                       [(ngModel)]="model.city"
+                       name="city" #city="ngModel" required>
+                <label alt="City" placeholder="City"></label>
+
+                <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+                  A city is required
+                </div>
+              </div>
+
+        <div class="form-group">
+                <input type="text" class="form-control anim"
+                       [(ngModel)]="model.state"
+                       name="state" #state="ngModel" required>
+                <label alt="State" placeholder="State"></label>
+
+                <div [hidden]="state.valid || state.pristine" class="alert alert-danger">
+                  A state is required
+                </div>
+              </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control anim"
+                 [(ngModel)]="model.zipcode"
+                 name="zipcode"  #zipcode="ngModel" required>
+          <label alt="Zipcode" placeholder="Zipcode"></label>
+
+          <div [hidden]="zipcode.valid || zipcode.pristine" class="alert alert-danger">
+            A zipcode is required
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" [disabled]="!conceptLocationForm.form.valid">SAVE</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+

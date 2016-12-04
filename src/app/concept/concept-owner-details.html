@@ -1,0 +1,127 @@
+<div *ngIf="owner" class="app-concept-details container">
+  <div class="header row">
+    <div class="col-md-9">
+      <h4>{{owner.organization_name}}</h4>
+      <span class="description">{{owner.first_name}} {{owner.last_name}}</span>
+    </div>
+    <div class="col-md-3 text-md-right">
+
+      <button
+        data-toggle="collapse"
+        data-target="#collapseFileUpload"
+        class="btn btn-primary">
+        <i class="fa fa-plus"></i>&nbsp;Import Menu
+      </button>
+    </div>
+  </div>
+  <div class="content row app-content">
+
+    <div class="col-md-9">
+      <!--<div *ngIf="showFileUpload" class="file-upload row">-->
+      <div id="collapseFileUpload" class="file-upload row panel-collapse collapse out">
+        <div class="hdr col-md-12">
+          <h5>
+            Import New Menu
+            <div data-toggle="collapse" data-target="#collapseFileUpload"style="display:inline;float:right"><i class="fa fa-times"></i></div>
+          </h5>
+        </div>
+        <div class="p-a-1 col-md-12">
+            <form [formGroup]="upload_fg" (ngSubmit)="uploadMenu()" class="form-inline">
+              <div class="form-group">
+                <input formControlName="filename_fc" class="font-header-sm form-control" type="text" placeholder="Enter menu name"/>
+                <!--<div *ngIf="filesToUpload" class="filename">{{filesToUpload[0].name}}</div>-->
+              </div>
+              <div class="form-group">
+                <label class="btn btn-default btn-file">
+                  Choose file <input type="file" (change)="setFile($event)" style="display: none;">
+                </label>
+              </div>
+              <div class="form-group" style="float:right;">
+                <button [disabled]="!upload_fg.valid" class="btn btn-primary" type="submit" style="margin-top:0px;width:150px;">Save</button>
+              </div>
+              <div class="form-check" style="float:right;margin-right: 15px;margin-top:10px;">
+                <label class="form-check-label">
+                  <input formControlName="is_active_fc" class="form-check-input" type="checkbox"> Is Active
+                </label>
+              </div>
+            </form>
+          </div>
+        <div class="p-a-1 col-md-12">
+          <div *ngIf="filesToUpload" class="filename">{{filesToUpload[0].name}}</div>
+        </div>
+      </div>
+
+      <div class="content row">
+        <div class="col-xs-6 p-l-0 locations">
+          <h5 *ngIf="owner.locations.length == 1">1 Location</h5>
+          <h5 *ngIf="owner.locations.length != 1">{{owner.locations.length}} Locations</h5>
+          <div *ngFor="let obj of owner.locations" class="concept-card container-fluid">
+            <div class="concept-container">
+              <div class="img">
+                <img src="https://placehold.it/400">
+              </div>
+              <div class="info">
+                <span *ngIf="obj.name" class="username">
+                  <a [routerLink]="['/concept/owner/'+owner.id+'/location/'+obj.id]">
+                    {{obj.name}}
+                  </a>
+                </span>
+                <span class="description">
+                  {{obj.address1}} {{obj.city}}, {{obj.state}} {{obj.zipcode}}
+                </span>
+                <span class="platform">Created {{obj.created_at | date:'short' }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 p-r-0 menus">
+          <h5 *ngIf="owner.menus.length == 1">1 Menu</h5>
+          <h5 *ngIf="owner.menus.length != 1">{{owner.menus.length}} Menus</h5>
+          <div *ngFor="let obj of owner.menus" class="concept-card container-fluid">
+            <div class="concept-container">
+              <div class="img">
+                <img src="https://placehold.it/400">
+              </div>
+              <div class="info">
+                <span *ngIf="obj.name" class="username">
+                  <a [routerLink]="['/concept/owner/'+owner.id+'/menu/'+obj.id]">
+                    {{obj.name}}
+                  </a>
+                </span>
+                <span class="description">
+                  {{obj.menuCategories.length}} Categories, {{obj.menuItems.length}} Items
+                </span>
+                <span class="platform">Created {{obj.created_at | date:'short' }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="right-col col-md-3">
+      <!--<div class="menu-form">-->
+        <!--<form [formGroup]="upload_fg" (ngSubmit)="uploadMenu()">-->
+          <!--<div class="form-group">-->
+            <!--<legend>Import Menu</legend>-->
+            <!--<input formControlName="filename_fc" class="font-header-sm form-control" type="text" placeholder="Enter menu name"/>-->
+            <!--<label class="btn btn-default btn-file">-->
+              <!--Choose file <input type="file" (change)="setFile($event)" style="display: none;">-->
+              <!--<div *ngIf="filesToUpload" class="filename">{{filesToUpload[0].name}}</div>-->
+            <!--</label>-->
+            <!--<button [disabled]="!upload_fg.valid" class="btn btn-primary" type="submit">Save</button>-->
+          <!--</div>-->
+        <!--</form>-->
+      <!--</div>-->
+
+      <!--<hr/>-->
+
+      <div class="row">
+        <div class="col-xs-12">
+          <concept-location-form [owner_id]="owner.id" [concept_id]="owner.concept.id" (addedLocation)="updateLocations($event)"></concept-location-form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

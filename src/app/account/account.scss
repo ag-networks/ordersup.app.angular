@@ -1,0 +1,59 @@
+@import '../styles/global.scss';
+
+.account {
+
+  color: $gray;
+  margin-top: $header-height;
+  margin-top: 25px;
+  div.header {
+    padding: 15px 0px;
+    margin-bottom: 20px;
+
+    margin-bottom: 0px;
+
+    > div {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    div.image {
+      .profile-pic {
+        background-color: $gray;
+        margin: 0 auto;
+        height: 50px;
+        width: 50px;
+      }
+    }
+
+    div.message {
+      clear: both;
+      margin-top: 10px;
+    }
+
+    div.links {
+      clear: both;
+      font-size: 12px;
+    }
+
+    div.nav {
+      clear: both;
+      margin: 35px 0px 0px 0px;
+      div.nav-link {
+        background-color: $gray;
+        color: $light;
+        font-size: 14px;
+        margin: 0 auto;
+        height: 50px;
+        width: 50px;
+        line-height: 50px;
+        //float: left;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+        &.active {
+          background-color: red;
+        }
+      }
+    }
+  }
+}

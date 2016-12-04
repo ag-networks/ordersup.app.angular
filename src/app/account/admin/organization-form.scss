@@ -1,0 +1,51 @@
+@import '../../styles/global.scss';
+
+.organization-form {
+  color: $gray;
+  padding-left: 100px;
+  padding-right: 100px;
+  h1,h2 {
+    text-align:center;
+    //padding: 15px;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+
+  input {
+    border-radius: 0px;
+    border: 0px;
+    border-bottom: 1px solid $gray;
+    text-align:center;
+  }
+
+  div.buttons-container {
+    margin: 0 auto;
+    text-align: center;
+    div.buttons {
+      display: inline-block;
+      button.save-btn {
+        background-color: $gray;
+        color: $light;
+        padding: 15px 100px 15px 100px;
+        border: 0px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+    span.btn-help {
+      color: #aaaaaa;
+      display: block;
+      clear: both;
+      float: left;
+      padding-top: 5px;
+      font-size: 12px;
+    }
+  }
+
+}

@@ -1,0 +1,70 @@
+<div class="admin-user-form container-fluid app-content">
+  <form [formGroup]="form" (ngSubmit)="onSubmitModelBased()">
+
+    <div class="summary container-fluid">
+      <div class="row">
+        <div class="col-md-4 offset-md-4">
+          <div class="gutter row">
+            <div class="col-md-12">
+
+              <h1>Account Information</h1>
+
+              <input
+                formControlName="email_address"
+                type="text"
+                class="form-control anim"
+                required
+              >
+              <label alt="Email Address&#32;&#42;" placeholder="Email Address&#32;&#42;"></label>
+
+              <button class="reset-pass-btn">Reset Password</button>
+
+
+              <h1>My Details</h1>
+              <input
+                formControlName="first_name"
+                type="text"
+                class="form-control anim"
+                required
+              >
+              <label alt="First Name&#32;&#42;" placeholder="First Name&#32;&#42;"></label>
+
+              <input
+                formControlName="last_name"
+                type="text"
+                class="form-control anim"
+                required
+              >
+              <label alt="Last Name&#32;&#42;" placeholder="Last Name&#32;&#42;"></label>
+
+              <input
+                formControlName="title"
+                type="text"
+                class="form-control anim"
+                required
+              >
+              <label alt="Position / Title&#32;&#42;" placeholder="Position / Title&#32;&#42;"></label>
+
+              <input
+                formControlName="phone_number"
+                type="text"
+                class="form-control anim"
+                [ngClass]="{'has-value':phone_number.hasError('hasValue'),'no-value':!phone_number.hasError('hasValue')}"
+              >
+              <label alt="Phone Number" placeholder="Phone Number"></label>
+
+              <button type="submit" [disabled]="!form.valid" class="save-btn">Save Changes</button>
+              <span class="btn-help">&#42; Required</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>
+      <button (click)="partialUpdate()">Partial Update</button>
+      <button (click)="fullUpdate()">Full Update</button>
+      <button (click)="reset()" >Cancel</button>
+    </p>
+
+  </form>
+</div>
