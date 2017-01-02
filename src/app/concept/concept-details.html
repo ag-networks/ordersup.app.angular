@@ -21,11 +21,13 @@
           <h5 *ngIf="concept.owners.length == 1">1 Owner</h5>
           <h5 *ngIf="concept.owners.length != 1">{{concept.owners.length}} Owners</h5>
           <div *ngFor="let obj of concept.owners" class="concept-card container-fluid">
-            <div class="concept-container">
-              <div class="img">
-                <img src="https://placehold.it/400">
-              </div>
-              <div class="info">
+            <div class="row">
+              <div class="col-md-9">
+                <div class="concept-container">
+                  <div class="img">
+                    <img src="https://placehold.it/400">
+                  </div>
+                  <div class="info">
                 <span *ngIf="obj.organization_name" class="username">
                   <a [routerLink]="['/concept/owner/'+obj.id]">
                     {{obj.organization_name}}
@@ -34,7 +36,14 @@
                 <span class="description">
                   {{obj.first_name}} {{obj.last_name}}, {{obj.phone}} <a href="mailto:{{obj.email}}">{{obj.email}}</a>
                 </span>
-                <span class="platform">Created {{concept.created_at | date:'short' }}</span>
+                    <span class="platform">Created {{concept.created_at | date:'short' }}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="actions-container text-xs-right">
+                  <a (click)="showRemoveModal(obj.id)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                </div>
               </div>
             </div>
           </div>
@@ -65,3 +74,34 @@
     </div>
   </div>
 </div>
+
+
+<div bsModal #removeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header text-xs-center">
+        <button (click)="hideConfirmRemoveAudienceModal()" type="button" class="close" aria-label="Close">
+          <i class="fa fa-times-circle"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 text-xs-center">
+              Are you sure you'd like to delete the concept owner?
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 p-l-0">
+              <button (click)="hideRemoveModal()" type="button" class="btn brand-btn-open">Cancel</button>
+            </div>
+            <div class="col-xs-6 p-r-0">
+              <button (click)="removeConceptOwner()" type="button" class="btn brand-btn-1">Yes, Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

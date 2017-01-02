@@ -3,6 +3,12 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { AuthenticationService } from '../common/services/authentication.service';
 import { AppConfigService } from '../common/services/app-config.service';
 import { ConceptService } from '../common/services/concept.service';
+//import { ComponentsHelper } from 'ng2-bootstrap/ng2-bootstrap'
+//import { ModalDirective  } from 'ng2-bootstrap/components/modal/modal.component';
+import { ModalDirective } from 'ng2-bootstrap/ng2-bootstrap';
+//import { ModalDirective  } from 'ng2-bootstrap/components/modal';
+//import { Modal  } from 'ng2-bootstrap/components/modal/modal.component';
+
 //import { CalendarPipe } from 'angular2-moment';
 
 
@@ -33,6 +39,10 @@ export class ConceptComponent {
   concept_name = new FormControl("", Validators.required);
   concept_description = new FormControl("", Validators.required);
 
+  @ViewChild('removeModal') public removeModal:ModalDirective;
+  private conceptIdToDelete;
+
+
   constructor(
     private injector: Injector) {
     console.log("Concept : CONSTRUCTOR");
@@ -50,7 +60,7 @@ export class ConceptComponent {
         this.concepts = JSON.parse(resp.text());
       },
       err  => {
-        console.error("Concept : error retrieving merchants",err)
+        console.error("Concept : error retrieving concepts",err)
       });
 
     }
@@ -111,6 +121,35 @@ export class ConceptComponent {
         console.error("ERROR",err);
         alert("you must sign in to comment on posts");
       });
+  }
+
+  public removeConcept() {
+    if(!this.conceptIdToDelete)
+      return;
+
+    this.conceptSvc.deleteConcept(this.conceptIdToDelete).subscribe(resp => {
+        this.conceptIdToDelete = null;
+        this.hideRemoveConceptModal();
+      },
+      err => {
+        console.error("ERROR",err);
+        alert("There was a problem deleting the concept.  Please contact support");
+      });
+  }
+
+  public showRemoveConceptModal(id:string):void {
+    console.log("Concept : showRemoveConceptModal()",id);
+    if(id=="")
+      return;
+
+    this.conceptIdToDelete = id;
+    this.removeModal.show();
+  }
+
+  public hideRemoveConceptModal():void {
+    console.log("Concept : hideRemoveConceptModal()");
+    this.conceptIdToDelete = null;
+    this.removeModal.hide();
   }
 
 }

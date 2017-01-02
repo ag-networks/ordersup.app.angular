@@ -21,11 +21,11 @@
                        name="store_code" required>
                 <label alt="Unique Store Code" placeholder="Unique Store Code"></label>
           <!--<span *ngIf="store_code.hasError('usernameShouldBeUnique')">the store code is already in use</span>-->
-          <span [ngClass]="{'has-error':store_code.hasError('storeCodeShouldBeUnique')}">the store code is already in use</span>
-          <br/>
-          <span [ngClass]="{'has-error':!store_code.hasError('storeCodeShouldBeUnique')}">the store code is already in use</span>
-          <br/>
-          <span *ngIf="store_code.hasError('storeCodeShouldBeUnique')">ok</span>
+          <span [ngClass]="{'has-error':store_code.hasError('storeCodeShouldBeUnique')}" class="storecode-error">the store code is already in use</span>
+          <!--<br/>-->
+          <!--<span [ngClass]="{'has-error':!store_code.hasError('storeCodeShouldBeUnique')}">the store code is already in use 2</span>-->
+          <!--<br/>-->
+          <!--<span *ngIf="store_code.hasError('storeCodeShouldBeUnique')">ok</span>-->
 
           <!--<span class="brand-req" [ngClass]="{'brand-req-ok':!store_code.hasError('usernameShouldBeUnique')}"><i class="fa fa-check"></i>&nbsp;PNG and JPG files only</span>-->
 

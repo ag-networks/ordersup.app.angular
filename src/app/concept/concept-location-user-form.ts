@@ -11,7 +11,7 @@ import { AppConfigService } from '../common/services/app-config.service';
 })
 export class ConceptLocationUserForm {
 
-  model = new ConceptLocationUser(null,null,'','','');
+  model = new ConceptLocationUser(null,null,'','','','');
 
   private appConfigSvc: any;
   private conceptSvc: any;
@@ -22,6 +22,7 @@ export class ConceptLocationUserForm {
   user_form: FormGroup;
   first_name = new FormControl("", Validators.required);
   last_name = new FormControl("", Validators.required);
+  username = new FormControl("", Validators.required);
   pin = new FormControl("", Validators.required);
   email = new FormControl("", Validators.required);
   phone = new FormControl("", Validators.required);
@@ -36,6 +37,7 @@ export class ConceptLocationUserForm {
     this.user_form = new FormGroup({
       "first_name": this.first_name,
       "last_name": this.last_name,
+      "username":this.username,
       "pin": this.pin,
       "email": this.email,
       "phone": this.phone
@@ -46,6 +48,7 @@ export class ConceptLocationUserForm {
         data => {
           this.model.first_name = data.first_name;
           this.model.last_name = data.last_name;
+          this.model.username = data.username;
           this.model.pin = data.pin;
           this.model.email = data.email;
           this.model.phone = data.phone;
@@ -70,6 +73,7 @@ export class ConceptLocationUserForm {
         concept_location_id:this.model.concept_location_id,
         first_name:this.model.first_name,
         last_name:this.model.last_name,
+        username:this.model.username,
         pin:this.model.pin,
         password:this.model.pin,
         password_confirmation:this.model.pin,
@@ -82,7 +86,7 @@ export class ConceptLocationUserForm {
       (resp) => {
         console.log("Concept Location User Form : resp",resp);
         this.addedUser.emit(JSON.parse(resp.text()));
-        this.model = new ConceptLocationUser(null,this.location_id,'','','');
+        this.model = new ConceptLocationUser(null,this.location_id,'','','','');
         this.user_form.reset();
       },
       (err) => {

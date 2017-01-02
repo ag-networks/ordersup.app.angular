@@ -197,11 +197,11 @@ export class ConceptLocationForm {
             (response) => {
               console.log("respons",response);
               //response => resolve({"storeCodeShouldBeUnique": true}),
-              resolve({["storeCodeShouldBeUnique"]: true})
+              resolve({["storeCodeShouldBeUnique"]: true});
             },
             (error)    => {
               console.log("error",error);
-              resolve(null)
+              resolve(null);
             }
           );
       //}, 600);

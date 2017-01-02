@@ -8,21 +8,11 @@
 
 //@import "bootstrap-overrides.scss";
 
-//@import "node_modules/font-awesome/scss/font-awesome";
 @import "../assets/css/font-awesome.css";
 
-//@import "node_modules/bootstrap/css/bootstrap";
-//@import "node_modules/bootstrap/dist/css/bootstrap.css";
-
-//@import "input-animation";
-//@import "overrides";
-//@import "bootstrap-overrides";
-//@import "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-//@import "node_modules/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.scss";
-//@import "../assets/css/fontawesome-prefit";
-//@import "node_modules/bootstrap-horizon/bootstrap-horizon";
-//@import "node_modules/bootstrap-social/bootstrap-social.scss";
-//@import "icon-animations";
+body {
+  color: $brand_charcoal;
+}
 
 // Set label color to lighter than standard
 label {
@@ -88,107 +78,17 @@ $font-weight-bold : 700;
 }
 
 
+.brand-btn-1 {
+  background-color: $brand_color_1;
+  color: $light;
+  border-color: $brand_color_1;
 
-
-/*
-a {
-  cursor: pointer;
 }
 
-//$font-family-italic: "Neutraface2Text-BookItalic";
-
-.app-content {
-  padding-left: $app_wrapper_horizontal_padding !important;
-  padding-right: $app_wrapper_horizontal_padding !important;
-  margin-left: $app_wrapper_horizontal_margin !important;
-  margin-right: $app_wrapper_horizontal_margin !important;
-  margin-top: $header-height;
+.brand-btn-open {
+  background-color: $light;
+  color: $brand_color_1;
+  border-color: $brand_color_1;
 }
-
-@media screen and (max-width: 680px) {
-  .app-content {
-    padding: 0px !important;
-    margin: 0px !important;
-  }
-}
-
-
-h1, h2 {
-  color: $pink;
-  text-transform: uppercase;
-}
-
-h2 {
-  font-size: 18px;
-}
-
-// form validation feedback
-.ng-valid[required] {
-  border-left: 5px solid #42A948;
-}
-
-.ng-invalid {
-  border-left: 5px solid #a94442;
-}
-
-.vert-align {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.overlay{
-  width:100%;
-  height:100%;
-  display:none;
-  position:absolute;
-  top:0px;
-  left:0px;
-  z-index:9999;
-}
-.overlay div {
-  position:relative;
-  display:inline-block;
-  top:50%;
-  margin:-50% 5px 0 0;
-}
-
-div.prod-box {
-  //background-color: red;
-  padding: 0px;
-  margin-bottom: 10px !important;
-  &:hover .overlay {
-    display:block;
-    background-color:$pink_transparent;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 300;
-  }
-}
-
-
-.pink-font {
-  color: $pink;
-}
-
-
-.modal-content {
-  max-height: 80vh;
-  overflow-y: scroll;
-}
-
-.equal {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.equal > div[class*='col-'] {
-  display: flex;
-  flex-direction: column;
-}
-
-*/
-
 
 

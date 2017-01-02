@@ -39,7 +39,12 @@ div.concept-location-form {
     border-radius: 0px;
   }
 
+  .storecode-error {
+    display: none;
+  }
+
   .has-error {
+    display: block;
     color: red;
   }
 }

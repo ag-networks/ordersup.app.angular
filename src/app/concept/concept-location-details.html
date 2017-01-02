@@ -94,8 +94,9 @@
                       {{obj.first_name}} {{obj.last_name}}
                     </a>
                   </span>
+
                   <span class="description">
-                    {{obj.email}}
+                    <a href="mailto:{{obj.email}}">{{obj.email}}</a>&nbsp;&nbsp;PIN:{{obj.pin}}
                   </span>
                   <!--<span class="platform">Created {{obj.created_at | amCalendar }}</span>-->
                 </div>

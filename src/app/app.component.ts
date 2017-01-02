@@ -1,7 +1,7 @@
 /*
  * Angular 2 decorators and services
  */
-import { Component, ViewEncapsulation, Injector } from '@angular/core';
+import { Component, ViewEncapsulation, ViewContainerRef, Injector } from '@angular/core';
 import { Router,
   ActivatedRoute,
   NavigationStart,

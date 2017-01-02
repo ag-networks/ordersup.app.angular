@@ -51,7 +51,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-3">
                 <div class="concept-container">
                   <div class="info">
                     <span *ngIf="concept.owners.length == 1" class="username">{{concept.owners.length}} Owner</span>
@@ -60,6 +60,11 @@
                     <span *ngIf="concept.locations.length != 1" class="description">{{concept.locations.length}} Locations</span>
                     <span class="platform">&nbsp;</span>
                   </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="actions-container text-xs-right">
+                  <a (click)="showRemoveConceptModal(concept.id)"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </div>
               </div>
             </div>
@@ -149,6 +154,35 @@
             <span><i>something else</i></span>
         </div>
 -->
+    </div>
+  </div>
+</div>
+
+<div bsModal #removeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header text-xs-center">
+        <button (click)="hideConfirmRemoveAudienceModal()" type="button" class="close" aria-label="Close">
+          <i class="fa fa-times-circle"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 text-xs-center">
+              Are you sure you'd like to delete the concept?
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 p-l-0">
+              <button (click)="hideRemoveConceptModal()" type="button" class="btn brand-btn-open">Cancel</button>
+            </div>
+            <div class="col-xs-6 p-r-0">
+              <button (click)="removeConcept()" type="button" class="btn brand-btn-1">Yes, Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

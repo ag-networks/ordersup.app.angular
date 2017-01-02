@@ -106,9 +106,15 @@ export class ConceptLocationDetails {
         this.active_menu_fg.controls['active_menu_fc'].setValue(this.location.menu.id);
       }
 
-      this.active_menu_fg.valueChanges.subscribe(
+      if(this.location.menu_id) {
+        this.menuDetails.getMenu(this.location.menu_id);
+        this.active_menu_fc.patchValue(this.location.menu_id);
+      }
+
+      this.active_menu_fc.valueChanges.subscribe(
         data => {
-            this.changeActiveMenu(data.active_menu_fc);
+            console.log("active_menu_fc : valueChanges : data",data);
+            this.changeActiveMenu(data);
         }
       );
       console.log("Concept Location Details : got location",this.location);

@@ -27,6 +27,16 @@
 
         <div class="form-group">
           <input type="text" class="form-control anim"
+                 formControlName="username"
+                 name="username" required>
+          <label alt="Username" placeholder="Username"></label>
+          <!--<div [hidden]="last_name.valid || last_name.pristine" class="alert alert-danger">-->
+          <!--An last name is required-->
+          <!--</div>-->
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control anim"
                  formControlName="pin"
                  name="pin" required>
           <label alt="Pin" placeholder="Pin"></label>

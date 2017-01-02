@@ -148,6 +148,15 @@ div.app-concept-details {
       }
 
     }
+    .actions-container {
+      a {
+        cursor: pointer;
+        display: block;
+        margin-top: 15px;
+        margin-right: 15px;
+        font-size: 20px;
+      }
+    }
   }
 
   div.orders {

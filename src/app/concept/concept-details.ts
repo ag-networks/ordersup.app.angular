@@ -8,6 +8,7 @@ import { ConceptService } from '../common/services/concept.service';
 import { FileUploadService } from '../common/services/file-upload.service';
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ModalDirective } from 'ng2-bootstrap/ng2-bootstrap';
 
 @Component({
   selector: 'concept-details',
@@ -35,7 +36,8 @@ export class ConceptDetails {
   private upload_fg: FormGroup;
   private filename_fc = new FormControl("", [Validators.required]);
 
-
+  @ViewChild('removeModal') public removeModal:ModalDirective;
+  private conceptOwnerIdToDelete;
 
   constructor(
     private route: ActivatedRoute,
@@ -140,6 +142,40 @@ export class ConceptDetails {
     } catch (error) {
       console.error("ERROR : ",error);
     }
+  }
+
+  public removeConceptOwner() {
+    if(!this.conceptOwnerIdToDelete)
+      return;
+
+    this.conceptSvc.deleteOwner(this.conceptOwnerIdToDelete).subscribe(resp => {
+        for(var i=0;i<this.concept.owners.length;i++) {
+          console.log("deleting",this.concept.owners[i].id,this.conceptOwnerIdToDelete);
+          if(this.concept.owners[i].id == this.conceptOwnerIdToDelete) {
+            this.concept.owners.splice(i,1);
+          }
+        }
+        this.hideRemoveModal();
+      },
+      err => {
+        console.error("ERROR",err);
+        alert("There was a problem deleting the concept owner.  Please contact support");
+      });
+  }
+
+  public showRemoveModal(id:string):void {
+    console.log("Concept : showRemoveModal()",id);
+    if(id=="")
+      return;
+
+    this.conceptOwnerIdToDelete = id;
+    this.removeModal.show();
+  }
+
+  public hideRemoveModal():void {
+    console.log("Concept : hideRemoveModal()");
+    this.conceptOwnerIdToDelete = null;
+    this.removeModal.hide();
   }
 
 }

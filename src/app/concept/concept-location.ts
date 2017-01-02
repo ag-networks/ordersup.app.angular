@@ -13,6 +13,7 @@ export class ConceptLocation {
     public zipcode: string,
     public users?: Array<any>,
     public menu?: any,
+    public menu_id?: any,
     public owner?: any,
     public menus?: Array<any>
   ) {  }

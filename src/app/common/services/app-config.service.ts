@@ -5,8 +5,8 @@ import { Injectable, EventEmitter, Injector } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
 import { NG2_UI_AUTH_PROVIDERS, JwtHttp } from 'ng2-ui-auth';
 
-export var BD_API_BASE_URL:string = "https://vm.2owls.com:7778";
-//export var BD_API_BASE_URL:string = "https://api.ordersup.com";
+//export var BD_API_BASE_URL:string = "https://vm.2owls.com:7778";
+export var BD_API_BASE_URL:string = "https://api.ordersup.com";
 export var FACEBOOK_CLIENT_ID:string = "135454413535701";
 export var INSTAGRAM_CLIENT_ID:string = "2521b53201a7406885439fd10590383c";
 export var GOOGLE_CLIENT_ID:string = "1035256706072-5chdhcn8uqvq05mur42t0hr2v6ssbjtc.apps.googleusercontent.com";

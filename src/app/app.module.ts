@@ -62,6 +62,10 @@ import { MenuService } from './common/services/menu.service';
 import { ConceptService } from './common/services/concept.service';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalModule } from 'ng2-bootstrap';
+//import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
+//import { ComponentLoaderFactory } from 'ng2-bootstrap/component-loader';
+
 
 
 
@@ -146,7 +150,10 @@ type StoreType = {
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true }),
     ReactiveFormsModule,
-    NgbModule
+    //NgbModule,
+    //Ng2BootstrapModule,
+    ModalModule.forRoot()
+
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,

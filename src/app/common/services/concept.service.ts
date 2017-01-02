@@ -103,5 +103,11 @@ export class ConceptService {
     return this.jwtHttp.delete(this.appConfig.api_base_url + '/v1/concepts/'+id);
   }
 
+  deleteOwner(id: string) {
+    console.log("ConceptService : deleteOwner()",id);
+
+    return this.jwtHttp.delete(this.appConfig.api_base_url + '/v1/concept_owners/'+id);
+  }
+
 
 }
